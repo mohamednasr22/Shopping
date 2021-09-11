@@ -42,7 +42,11 @@ export class RecipeService {
       }
 
       addRecipe(recipe : Recipe){
+        console.log("debage");
         this.recipes.push(recipe);
+        console.log("debage");
+        console.log(this.recipes.slice());
+        console.log("debage");
         this.recipesChanged.next(this.recipes.slice());
       }
       updateRecipe(index:number, newRecipe : Recipe){
