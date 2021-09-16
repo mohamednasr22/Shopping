@@ -20,7 +20,7 @@ export class RecipeListComponent implements OnInit {
               private route : ActivatedRoute  ) { }
 
   ngOnInit(): void {
-   this.recipeService.recipesChanged
+    this.subscription =this.recipeService.recipesChanged
       .subscribe(
         (recipes: Recipe[]) => {
           this.recipes = recipes;
@@ -31,9 +31,9 @@ export class RecipeListComponent implements OnInit {
   onNewRecipe(){
       this.router.navigate(['new'],{relativeTo : this.route});
   }
- /*  ngOnDestroy(){
+  ngOnDestroy(){
     this.subscription.unsubscribe();
-  } */
+  } 
 /* 
   onRecipeSelected(recipe: Recipe) {
     this.recipeWasSelected.emit(recipe);
